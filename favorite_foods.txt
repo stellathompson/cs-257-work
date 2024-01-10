@@ -8,3 +8,5 @@ spaghetti
 raspberries
 chocolate
 bagels
+strawberries
+muffins
