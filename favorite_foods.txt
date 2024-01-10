@@ -6,3 +6,5 @@ french toast
 croissants
 spaghetti
 raspberries
+chocolate
+bagels
