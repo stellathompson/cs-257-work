@@ -1,7 +1,6 @@
 import psycopg2
 
 
-
 def test_connection():
 
     conn = psycopg2.connect(
@@ -50,3 +49,6 @@ def create_tables():
     conn.commit()
     
     return row
+
+test_connection()
+create_tables()
