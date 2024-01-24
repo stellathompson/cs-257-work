@@ -29,7 +29,7 @@ def create_tables():
 
     cur = conn.cursor()
 
-    sql = """DROP TABLE IF EXISTS cities; CREATE TABLE cities (city text, state text, population real, lat real, lon real);
+    sql = """DROP TABLE IF EXISTS cities; CREATE TABLE cities (city text, state text, population integer, lat real, lon real);
             DROP TABLE IF EXISTS abbreviations; CREATE TABLE abbreviations (state text, abbreviation text);"""
     
     cur.execute( sql )
