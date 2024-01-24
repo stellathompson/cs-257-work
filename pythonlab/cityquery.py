@@ -16,7 +16,7 @@ def test_query_one():
     cur.execute( sql )
 
     # fetchone() returns one row that matches your quer
-    row = cur.fetchone(sql)
+    row = cur.fetchone()
 
     if row[0] == 'Northfield':
         print("latitude is: " + row[3] + " and longitude is: " + row[4])
