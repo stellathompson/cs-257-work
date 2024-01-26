@@ -15,23 +15,12 @@ def test_query_one():
     
     cur.execute( sql )
 
-    # fetchone() returns one row that matches your quer
     row = cur.fetchone()
 
     if row == None:
         print("Sorry, Northfield is not in the database.")
     else:
         print("latitude is: " + row[3] + " and longitude is: " + row[4])
-
-
-    # Note: We could access individual items in the row
-    # That is, row[0] would be the name column in the previous example
-    #   ... and row[1] would be the abb column
-
-    #IMPORTANT: This function doesn't actually change the database
-    #If we are trying to change the database ...
-    # ... for example, creating a table
-    #Then we need the following command to finalize our changes
 
     conn.commit()
 
@@ -50,7 +39,6 @@ def test_query_two():
     
     cur.execute( sql )
 
-    # fetchone() returns one row that matches your quer
     row = cur.fetchone()
 
     if row == None:
@@ -58,17 +46,122 @@ def test_query_two():
     else:
         print(row[0], "has a population of", row[2], "(the biggest in the dataset).")
 
+    conn.commit()
 
-    # Note: We could access individual items in the row
-    # That is, row[0] would be the name column in the previous example
-    #   ... and row[1] would be the abb column
+def test_query_three():
 
-    #IMPORTANT: This function doesn't actually change the database
-    #If we are trying to change the database ...
-    # ... for example, creating a table
-    #Then we need the following command to finalize our changes
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="thompsons",
+        user="thompsons",
+        password="paper876stars")
+
+    cur = conn.cursor()
+
+    sql = " SELECT * FROM cities WHERE state = 'Minnesota' ORDER BY population ASC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "has a population of", row[2], "(the smallest in Minnesota).")
+
+    conn.commit()
+
+def test_query_four():
+
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="thompsons",
+        user="thompsons",
+        password="paper876stars")
+
+    cur = conn.cursor()
+
+#North
+    sql = " SELECT * FROM cities ORDER BY lat DESC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "is furthest North.")
+
+#South
+    sql = " SELECT * FROM cities ORDER BY lat ASC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "is furthest South.")    
+
+#East
+    sql = " SELECT * FROM cities ORDER BY lon DESC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "is farthest East.")
+
+#West
+    sql = " SELECT * FROM cities ORDER BY lon ASC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "is farthest West.")
+        
+    conn.commit()
+    
+
+def test_query_five():
+
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="thompsons",
+        user="thompsons",
+        password="paper876stars")
+
+    cur = conn.cursor()
+
+    #if length of string is 2, then go to abbreviation table and find the state
+    #turn the state into variable that is then used in the SQL call
+    #else, put the state directly into the SQL command
+    sql = " SELECT * FROM cities ORDER BY population DESC "
+    
+    cur.execute( sql )
+
+    row = cur.fetchone()
+
+    if row == None:
+        print("Something went wrong...")
+    else:
+        print(row[0], "has a population of", row[2], "(the biggest in the dataset).")
 
     conn.commit()
 
 test_query_one()
 test_query_two()
+test_query_three()
+test_query_four()
