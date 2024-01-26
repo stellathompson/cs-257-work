@@ -56,7 +56,7 @@ def test_query_two():
     if row == None:
         print("Something went wrong...")
     else:
-        print(row[0] + " has a population of " + row[2] ", the biggest in the dataset.")
+        print(row[0] + " has a population of " + row[2] + ", the biggest in the dataset.")
 
 
     # Note: We could access individual items in the row
