@@ -16,12 +16,12 @@ def test_query_one():
     cur.execute( sql )
 
     # fetchone() returns one row that matches your quer
-    row = cur.fetchone(sql)
+    row = cur.fetchone()
 
-    if row[0] == 'Northfield':
-        print("latitude is: " + row[3] + " and longitude is: " + row[4])
-    else:
+    if row == None:
         print("Sorry, Northfield is not in the database.")
+    else:
+        print("latitude is: " + row[3] + " and longitude is: " + row[4])
 
 
     # Note: We could access individual items in the row
@@ -34,5 +34,5 @@ def test_query_one():
     #Then we need the following command to finalize our changes
 
     conn.commit()
-    
+
 test_query_one()
