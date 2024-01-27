@@ -161,10 +161,10 @@ def test_query_five():
     
     cur.execute( sql )
 
-    row = cur.fetchall()
+    rows = cur.fetchall()
     total_population = 0
-    for i in row:
-        total_population += row[i][2]
+    for row in rows:
+        total_population += row[2]
 
 
     if row == None:
