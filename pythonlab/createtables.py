@@ -34,15 +34,6 @@ def create_tables():
     
     cur.execute( sql )
 
-    # Note: We could access individual items in the row
-    # That is, row[0] would be the name column in the previous example
-    #   ... and row[1] would be the abb column
-
-    #IMPORTANT: This function doesn't actually change the database
-    #If we are trying to change the database ...
-    # ... for example, creating a table
-    #Then we need the following command to finalize our changes
-
     conn.commit()
 
 test_connection()
