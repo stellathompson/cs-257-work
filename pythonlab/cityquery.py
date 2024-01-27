@@ -164,7 +164,7 @@ def test_query_five():
     row = cur.fetchall()
     total_population = 0
     for i in row:
-        total_population += row[2]
+        total_population += row[i][2]
 
 
     if row == None:
