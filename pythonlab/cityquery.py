@@ -147,7 +147,7 @@ def test_query_five():
     state = input("What is the name of the state you are looking for?")
     
     if len(state) == 2:
-        sql = "SELECT * FROM abbreviations WHERE abbreviation =", state
+        sql = "SELECT * FROM abbreviations WHERE abbreviation = '" + state + "'"
         cur.execute(sql)
         row = cur.fetchone()
         state_name = row[0]
@@ -157,7 +157,7 @@ def test_query_five():
     #if length of string is 2, then go to abbreviation table and find the state
     #turn the state into variable that is then used in the SQL call
     #else, put the state directly into the SQL command
-    sql = " SELECT * FROM cities WHERE state =", state_name
+    sql = " SELECT * FROM cities WHERE state = '" + state_name + "'"
     
     cur.execute( sql )
 
