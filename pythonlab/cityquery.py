@@ -146,7 +146,7 @@ def test_query_five():
     cur = conn.cursor()
     state = input("What is the name of the state you are looking for?")
     
-    if len(state_name) == 2:
+    if len(state) == 2:
         sql = "SELECT * FROM abbreviations WHERE abbreviation =", state_name
         cur.execute(sql)
         row = cur.fetchone()
