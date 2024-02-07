@@ -3,8 +3,8 @@ import flask
 app = flask.Flask(__name__)
 
 #returns the sum of two numbers
-@app.route('/display/<number1>/<number2>')
-def my_display(number1, number2):
+@app.route('/add/<number1>/<number2>')
+def addition(number1, number2):
     number1 = int(number1)
     number2 = int(number2)
     result = number1 + number2
