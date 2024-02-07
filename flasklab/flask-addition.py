@@ -8,6 +8,7 @@ def addition(number1, number2):
     number1 = int(number1)
     number2 = int(number2)
     result = number1 + number2
+    result = str(result)
     return result
 
 if __name__ == '__main__':
