@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-    return render_template("index.html")
+    return render_template("templates/index.html")
 
 @app.route('/rand/<low>/<high>')
 def rand(low, high):
@@ -16,7 +16,7 @@ def rand(low, high):
     high_int = int(high)
     
     num = random.randint(low_int, high_int)
-    return render_template("random.html", randNum = num)
+    return render_template("templates/random.html", randNum = num)
 
 if __name__ == '__main__':
     my_port = 5135
