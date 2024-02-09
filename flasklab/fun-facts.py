@@ -18,7 +18,7 @@ def rand(low, high):
 
     num = random.randint(low_int, high_int)
 
-    cityNum = random.randint(0, 3000)
+    cityNum = random.randint(0, 999)
 
     conn = psycopg2.connect(
     host="localhost",
@@ -29,7 +29,7 @@ def rand(low, high):
 
     cur = conn.cursor()
 
-    sql = " SELECT city FROM cities WHERE city IS NOT null"
+    sql = " SELECT city FROM cities "
     
     cur.execute( sql )
 
