@@ -34,7 +34,8 @@ def rand(low, high):
     cur.execute( sql )
 
     for i in range (cityNum):
-        city = cur.fetchone()
+        row = cur.fetchone()
+        city = row[0]
 
     return render_template("random-fun-fact.html", randNum = num, randCity = city)
 
