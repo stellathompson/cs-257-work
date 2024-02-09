@@ -29,7 +29,7 @@ def rand(low, high):
 
     cur = conn.cursor()
 
-    sql = " SELECT city FROM cities "
+    sql = " SELECT city FROM cities WHERE city IS NOT null"
     
     cur.execute( sql )
 
