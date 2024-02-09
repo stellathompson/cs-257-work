@@ -36,7 +36,7 @@ def rand(low, high):
     for i in range (cityNum):
         city = cur.fetchone()
 
-    return render_template("random.html", randNum = num, randCity = city)
+    return render_template("random-fun-fact.html", randNum = num, randCity = city)
 
 if __name__ == '__main__':
     my_port = 5135
