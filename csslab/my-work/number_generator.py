@@ -10,9 +10,9 @@ def welcome():
     return render_template("homepage.html", someText = welcome_message)
 
 def numberGenerator():
-    randomNumber = random.randint(0, 10000)
-    randomNumber = str(randomNumber)
-    return render_template("homepage.html", randomNumber = randomNumber)
+    number = random.randint(0, 10000)
+    number = str(number)
+    return render_template("homepage.html", randomNumber = number)
 
 if __name__ == '__main__':
     my_port = 5135
