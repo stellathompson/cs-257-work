@@ -11,7 +11,8 @@ def welcome():
 
 def numberGenerator():
     randomNumber = random.randint(0, 10000)
-    return str(randomNumber)
+    randomNumber = str(randomNumber)
+    return randomNumber
 
 if __name__ == '__main__':
     my_port = 5135
