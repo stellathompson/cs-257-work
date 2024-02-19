@@ -5,14 +5,11 @@ import random
 app = Flask(__name__)
 
 @app.route('/')
-def welcome():
+def homepage():
     welcome_message = "Welcome to my random number generator! Click the button to get a new random number."
-    return render_template("homepage.html", someText = welcome_message)
-
-def numberGenerator():
     number = random.randint(0, 10000)
     number = str(number)
-    return render_template("homepage.html", randomNumber = number)
+    return render_template("homepage.html", someText = welcome_message, randomNumber = number)
 
 if __name__ == '__main__':
     my_port = 5135
