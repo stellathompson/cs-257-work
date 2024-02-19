@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     welcome_message = "Welcome to my random number generator! Click the button to get a new random number."
-    number = random.randint(0, 10000)
+    number = random.randint(0, 500)
     number = str(number)
     return render_template("homepage.html", someText = welcome_message, randomNumber = number)
 
